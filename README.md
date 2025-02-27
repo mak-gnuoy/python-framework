@@ -1,17 +1,3 @@
-# Python Project Template
+# Python Framework
 
-This is a python project tempate for vscode using devcontainer.
-
-## Directory Layout
-```
-├── project-template_python
-    ├── Dockerfile
-    ├── LICENSE
-    ├── README.md
-    ├── app/
-    ├── conf/
-    ├── docs/
-    ├── requirements.txt
-    ├── src/
-    └── tests/
-```
+This is a framework for python app.
