@@ -38,5 +38,6 @@ class App(Base):
                 self.settings, sort_keys=True, indent=4)}"
         )
 
-        self.config = Config.load(config_path)
+        if config_path:
+            self.config = Config.load(config_path)
         self.callback = callback
