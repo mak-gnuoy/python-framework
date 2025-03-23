@@ -7,6 +7,7 @@ import asyncio
 
 @dataclass
 class Result:
+    command: str
     returncode: int
     stdout: str
     stderr: str
@@ -25,7 +26,7 @@ class Command:
                 check=True,
                 shell=True,
             )
-            return Result(result.returncode, result.stdout, result.stderr)
+            return Result(command, result.returncode, result.stdout, result.stderr)
         except subprocess.CalledProcessError as e:
             cls.logger.debug(f"Command failed with exit code {e.returncode} {e.stderr}")
             raise RuntimeError(f"Command failed with exit {e}")
@@ -38,7 +39,7 @@ class Command:
             )
 
             stdout, stderr = await process.communicate()
-            return Result(process.returncode, stdout.decode(), stderr.decode())
+            return Result(command, process.returncode, stdout.decode(), stderr.decode())
 
         except subprocess.CalledProcessError as e:
             cls.logger.debug(f"Command failed with exit code {e.returncode} {e.stderr}")
