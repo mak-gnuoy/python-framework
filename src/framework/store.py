@@ -59,7 +59,7 @@ class JsonFileStore(FileStore):
         file_data.update(key_values)
 
         with open(self._path, "w") as f:
-            json.dump(file_data, f)
+            json.dump(file_data, f, default=str)
             self._logger.debug(f"{key_values} written to the {self._path}")
 
         return file_data
